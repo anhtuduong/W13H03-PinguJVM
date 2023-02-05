@@ -117,12 +117,11 @@ public class PVMExecutable {
 
                     // Laden/Speichern
                     case LOAD -> {
-                        // TODO
-                        throw new RuntimeException("case LOAD not yet implemented!");
+                        stack[++stackPtr] = variables[instruction.line];
                     }
                     case STORE -> {
-                        // TODO
-                        throw new RuntimeException("case STORE not yet implemented!");
+                        variables[instruction.line] = stack[stackPtr--];
+
                     }
 
                     // Stack-Befehle
@@ -149,8 +148,8 @@ public class PVMExecutable {
                         throw new RuntimeException("case FJUMP not yet implemented!");
                     }
                     case HALT -> {
-                        // TODO
-                        throw new RuntimeException("case HALT not yet implemented!");
+                        halted = true;
+                        break;
                     }
                 }
             }
