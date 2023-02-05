@@ -46,80 +46,73 @@ public class PVMExecutable {
                         stack[stackPtr] = stack[stackPtr] + stack[stackPtr + 1];
                     }
                     case SUB -> {
-                        // TODO
-                        throw new RuntimeException("case SUB not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] - stack[stackPtr + 1];
                     }
                     case MUL -> {
-                        // TODO
-                        throw new RuntimeException("case MUL not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] * stack[stackPtr + 1];
                     }
                     case DIV -> {
-                        // TODO
-                        throw new RuntimeException("case DIV not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] / stack[stackPtr + 1];
                     }
                     case MOD -> {
-                        // TODO
-                        throw new RuntimeException("case MOD not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] % stack[stackPtr + 1];
                     }
                     case NEG -> {
-                        // TODO
-                        throw new RuntimeException("case NEG not yet implemented!");
+                        stack[stackPtr] = -stack[stackPtr];
                     }
 
                     // Boolesche Operationen
                     case AND -> {
-                        // TODO
-                        throw new RuntimeException("case AND not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] & stack[stackPtr + 1];
                     }
                     case OR -> {
-                        // TODO
-                        throw new RuntimeException("case OR not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] | stack[stackPtr + 1];
                     }
                     case NOT -> {
-                        // TODO
-                        throw new RuntimeException("case NOT not yet implemented!");
+                        stack[stackPtr] = ~stack[stackPtr];
                     }
 
                     // Vergleichs-Operationen
                     case LESS -> {
-                        // TODO
-                        throw new RuntimeException("case LESS not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] < stack[stackPtr + 1] ? 1 : 0;
                     }
                     case LEQ -> {
-                        // TODO
-                        throw new RuntimeException("case LEQ not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] <= stack[stackPtr + 1] ? 1 : 0;
                     }
                     case EQ -> {
-                        // TODO
-                        throw new RuntimeException("case EQ not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] == stack[stackPtr + 1] ? 1 : 0;
                     }
                     case NEQ -> {
-                        // TODO
-                        throw new RuntimeException("case NEQ not yet implemented!");
+                        stackPtr--;
+                        stack[stackPtr] = stack[stackPtr] != stack[stackPtr + 1] ? 1 : 0;
                     }
 
                     // IO-Befehle
                     case READ -> {
-                        // TODO
-                        throw new RuntimeException("case READ not yet implemented!");
+                        stack[++stackPtr] = io.read();
                     }
                     case WRITE -> {
-                        // TODO
-                        throw new RuntimeException("case WRITE not yet implemented!");
+                        io.write(stack[stackPtr--]);
                     }
 
                     // Konstanten
                     case CONST -> {
-                        // TODO
-                        throw new RuntimeException("case CONST not yet implemented!");
+                        stack[++stackPtr] = instruction.line;
                     }
                     case TRUE -> {
-                        // TODO
-                        throw new RuntimeException("case TRUE not yet implemented!");
+                        stack[++stackPtr] = 1;
                     }
                     case FALSE -> {
-                        // TODO
-                        throw new RuntimeException("case FALSE not yet implemented!");
+                        stack[++stackPtr] = 0;
                     }
 
                     // Laden/Speichern
